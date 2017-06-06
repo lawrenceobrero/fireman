@@ -1,0 +1,136 @@
+.navbar-container {
+    padding: 20px 0px 0px 0px;
+
+}
+
+.navbar-brand {
+    padding: 13.5px 15px 12.5px;
+}
+
+
+.navbar-brand>img {
+    display: inline;
+    margin: 0 10px;
+}
+
+
+.navbar-default .navbar-brand {
+    font-size: 40px;
+    font-weight: 100;
+    text-shadow: 0 1px 0 #fff;
+    color: #49166d;
+}
+
+.navbar {
+    height: 60px;
+}
+
+
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 40px;
+  background-color: #f9f5fc;;
+
+}
+
+
+
+.footer-container {
+
+  width: auto;
+  padding: 10px 20px;
+}
+
+
+ul.steps {
+    display: inline-block;
+  
+}
+
+
+#wizardStepDiv  {
+    padding-top: 3em;
+    margin-bottom: 20px;
+    padding-left: 30px;
+}
+
+ul.steps li {
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    display: inline-block;
+    position: relative;
+    background: #6c0;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+    margin: 0 100px;
+}
+
+ul.steps li::before {
+    content: '';
+    position: absolute;
+    top: 13px;
+    left: 0px;
+    width: 250px;
+    height: 1px;
+    background: #6c0;
+    z-index: -1;
+}
+
+#one::before {
+   content: none;
+}
+
+ul.steps li a {
+    text-decoration: none;
+    color: white;
+    
+}
+
+ul.steps a {
+    display: block;
+}
+
+
+
+
+/* make sidebar nav vertical */ 
+@media (min-width: 768px) {
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+
+
+#btn-add-src {
+    min-width : 20px;
+    padding-left: 20px;
+}
+
+
+footer {
+    position: fixed;
+    height: 100px;
+    bottom: 0;
+    width: 100%;
+}
+
+
