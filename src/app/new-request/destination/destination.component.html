@@ -1,3 +1,91 @@
-<p>
-  destination works!
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <form class="form-inline">
+        <fieldset>
+          <legend>Destination</legend>
+          <div class="form-group">
+            <label for="hostname" class="">Hostname</label>
+            <input type="email" class="form-control"
+              id="hostname" placeholder="">
+          </div>
+          <div class="form-group">
+            <label for="hostname">IP/Subnet</label>
+            <input type="email" class="form-control"
+              id="hostname" placeholder="">
+          </div>
+
+          <div class="form-group">
+            <label for="select">Location</label>
+
+            <select class="form-control" id="select">
+              <option>AB</option>
+              <option>BC</option>
+              <option>ON</option>
+            </select>
+          </div>
+
+          <div class="form-group" style="padding-left: 5px;">
+            <button type="submit" id="btn-add-src" class="btn btn-success">Add</button>
+          </div>
+
+        </fieldset>
+
+      </form>
+    </div>
+  </div>
+<br>
+  <div class="row">
+    <div class="col-sm-12" >
+      <table class="table table-striped table-hover ">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Hostname</th>
+            <th>IP/Subnet</th>
+            <th>Location</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Hostname 1</td>
+            <td>192.168.1.1</td>
+            <td>AB</td>
+            <td>
+                <button type="submit" class="btn btn-default btn-xs">delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Hostname 2</td>
+            <td>192.168.1.2</td>
+            <td>BC</td>
+            <td>
+                <button type="submit" class="btn btn-default btn-xs">delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Hostname 3</td>
+            <td>192.168.1.3</td>
+            <td>ON</td>
+            <td>
+                <button type="submit" class="btn btn-default btn-xs">delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  
+  <div class="row">
+    <div class="col-sm-12">
+       <button type="submit" class="btn btn-default pull-left" (click)="onBack()">Back</button>
+       <button type="submit" class="btn btn-success pull-right" (click)="onNext()">Next</button>
+    </div>
+  </div>
+
+</div>

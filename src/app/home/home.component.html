@@ -1,11 +1,25 @@
-<div class="col-sm-2" style="padding-top: 20px">
+<!--<div class="col-sm-2" style="padding-top: 20px">
   <ul class="nav nav-pills nav-stacked">
-  <li ><a href="#">List Request</a></li>
-  <li class="active"><a href="#">New Request</a></li>
-   <li><a href="#">About</a></li>
+  <li role="presentation"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{exact: true}">
+    <a routerLink="/requests">List Requests</a>
+  </li>
+  <li 
+    role="presentation"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{exact: true}">
+    <a routerLink="/new">New Request</a>
+  </li>
+  <li 
+    role="presentation"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{exact: true}">
+    <a routerLink="/about">About</a>
+  </li>
  
 </ul>
-</div>
+</div>-->
 <main class="col-sm-10">
   <!--<app-new-request></app-new-request>-->
   <router-outlet></router-outlet>

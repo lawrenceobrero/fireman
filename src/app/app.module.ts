@@ -14,19 +14,10 @@ import { DestinationComponent } from './new-request/destination/destination.comp
 import { PortComponent } from './new-request/port/port.component';
 import { ProjectComponent } from './new-request/project/project.component';
 import { SummaryComponent } from './new-request/summary/summary.component';
-
-
-const appRouter : Routes = [
-  {path:'', component:HomeComponent},
-  {path:'new', component:NewRequestComponent, children: [
-    {path: 'source', component: SourceComponent},
-    {path: 'destination', component: DestinationComponent},
-    {path: 'port', component: PortComponent},
-    {path: 'project', component: ProjectComponent},
-    {path: 'summary', component: SummaryComponent},
-  ]}
-];
-
+import { AppRoutingModule } from './app-routing-module';
+import { ListRequestsComponent } from './list-requests/list-requests.component';
+import { AboutComponent } from './about/about.component';
+import { SideNavbarComponent } from './side-navbar/side-navbar.component';
 
 
 
@@ -41,7 +32,10 @@ const appRouter : Routes = [
     DestinationComponent,
     PortComponent,
     ProjectComponent,
-    SummaryComponent
+    SummaryComponent,
+    ListRequestsComponent,
+    AboutComponent,
+    SideNavbarComponent
   
   ],
   imports: [
@@ -49,7 +43,7 @@ const appRouter : Routes = [
     FormsModule,
     HttpModule,
     FormWizardModule,
-    RouterModule.forRoot(appRouter)
+    AppRoutingModule
     
   ],
   providers: [],

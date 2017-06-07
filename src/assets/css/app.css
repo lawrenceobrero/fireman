@@ -1,3 +1,8 @@
+Body {
+      font-family: tultralightregular, "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+
 .navbar-container {
     padding: 20px 0px 0px 0px;
 
@@ -15,6 +20,7 @@
 
 
 .navbar-default .navbar-brand {
+ font-family: "tlightregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 40px;
     font-weight: 100;
     text-shadow: 0 1px 0 #fff;
@@ -53,9 +59,10 @@ ul.steps {
 
 
 #wizardStepDiv  {
-    padding-top: 3em;
-    margin-bottom: 20px;
-    padding-left: 30px;
+    padding-top: 2em;
+    padding-right: 0;
+
+  
 }
 
 ul.steps li {
@@ -68,7 +75,7 @@ ul.steps li {
     text-align: center;
     line-height: 30px;
     color: white;
-    margin: 0 100px;
+    margin: 0 25px;
 }
 
 ul.steps li::before {
@@ -76,7 +83,7 @@ ul.steps li::before {
     position: absolute;
     top: 13px;
     left: 0px;
-    width: 250px;
+    width: 100px;
     height: 1px;
     background: #6c0;
     z-index: -1;
@@ -134,3 +141,6 @@ footer {
 }
 
 
+.table {
+    padding: 7px 12px;
+}

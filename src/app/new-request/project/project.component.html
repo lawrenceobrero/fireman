@@ -1,3 +1,38 @@
-<p>
-  project works!
-</p>
+
+  <legend>Project Details</legend>
+  
+  <div class="form-group col-sm-4">
+    <label class="control-label" for="focusedInput">Project Name</label>
+    <input class="form-control" id="focusedInput"
+      type="text">
+  </div>
+  <div class="form-group col-sm-4">
+    <label class="control-label" for="focusedInput">Project Manager</label>
+    <input class="form-control" id="focusedInput"
+      type="text">
+  </div>
+  <div class="form-group col-sm-4">
+    <label class="control-label" for="focusedInput">WBS Code</label>
+    <input class="form-control" id="focusedInput"
+      type="text">
+  </div>
+  <div class="form-group col-sm-12">
+    <label class="control-label" for="focusedInput">What is a business need for the request? What are you trying to achieve with this request?</label>
+    <input class="form-control" id="focusedInput"
+      type="text">
+  </div>
+  <div class="form-group col-sm-12">
+    <label class="control-label" for="focusedInput">What is the nature of the source? (Example: SQL Server, Management Subnet)</label>
+    <input class="form-control" id="focusedInput"
+      type="text">
+  </div>
+    <div class="form-group col-sm-12">
+    <label class="control-label" for="focusedInput">What is the nature of the destination? (Example: SQL Server, Management Subnet)</label>
+    <input class="form-control" id="focusedInput"
+      type="text">
+  </div>
+
+ <div class="col-sm-12">
+       <button type="submit" class="btn btn-default pull-left" (click)="onBack()">Back</button>
+       <button type="submit" class="btn btn-success pull-right" (click)="onSubmit()">Next</button>
+    </div>
