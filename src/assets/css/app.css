@@ -144,3 +144,12 @@ footer {
 .table {
     padding: 7px 12px;
 }
+
+input.ng-invalid.ng-touched {
+    border: 2px solid #cd3e3e;
+}
+
+select.ng-invalid.ng-touched {
+    border: 2px solid #cd3e3e;
+}
+
