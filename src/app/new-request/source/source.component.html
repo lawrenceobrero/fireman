@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-12">
 
-      <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+      <form (ngSubmit)="onAdd(form)" #form="ngForm">
         <div id="source-data">
           <legend>Source Details</legend>
           <div class="form-group col-sm-5" style="padding: 0px;">
@@ -72,90 +72,27 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1</td>
-        <td>Hostname 1</td>
-        <td>192.168.1.1</td>
-        <td>AB</td>
+
+      <tr *ngFor="let address of sourceAddress;  let i = index;"> 
+        <td>{{i + 1}}</td>
+        <td>{{address.hostname}}</td>
+        <td>{{address.ip}}</td>
+        <td>{{address.location}}</td>
         <td>
           <button type="submit" class="btn btn-danger btn-xs">delete</button>
         </td>
       </tr>
-      <tr>
-        <td>2</td>
-        <td>Hostname 2</td>
-        <td>192.168.1.2</td>
-        <td>BC</td>
-        <td>
-          <button type="submit" class="btn btn-danger btn-xs">delete</button>
-        </td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>Hostname 3</td>
-        <td>192.168.1.3</td>
-        <td>ON</td>
-        <td>
-          <button type="submit" class="btn btn-danger btn-xs">delete</button>
-        </td>
-      </tr>
+
+      
     </tbody>
   </table>
 
-  <!--<div class="row">
-    <div class="col-sm-12">
-      <table class="table table-striped table-hover ">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Hostname</th>
-            <th>IP/Subnet</th>
-            <th>Location</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Hostname 1</td>
-            <td>192.168.1.1</td>
-            <td>AB</td>
-            <td>
-              <button type="submit" class="btn btn-default btn-xs">delete</button>
-            </td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Hostname 2</td>
-            <td>192.168.1.2</td>
-            <td>BC</td>
-            <td>
-              <button type="submit" class="btn btn-default btn-xs">delete</button>
-            </td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Hostname 3</td>
-            <td>192.168.1.3</td>
-            <td>ON</td>
-            <td>
-              <button type="submit" class="btn btn-default btn-xs">delete</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>-->
+  
   <div class="col-sm-12" style="padding:0;">
     <button class="btn btn-success pull-right"
-      (click)="onNext()" [disabled]="!form.valid" >Next</button>
+      (click)="onNext()" [disabled]="!next" >Next</button>
   </div>
 
-  <!--<div class="row">
-    <div class="col-sm-12">
-      <button type="submit" class="btn btn-success pull-right"
-        (click)="onNext()">Next</button>
-    </div>
-  </div>-->
+
 
 </div>
