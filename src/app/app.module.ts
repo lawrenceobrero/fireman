@@ -18,6 +18,11 @@ import { AppRoutingModule } from './app-routing-module';
 import { ListRequestsComponent } from './list-requests/list-requests.component';
 import { AboutComponent } from './about/about.component';
 import { SideNavbarComponent } from './side-navbar/side-navbar.component';
+import { SourceListComponent } from './new-request/source/source-list/source-list.component';
+
+import { SourceItemComponent } from './new-request/source/source-list/source-item/source-item.component';
+import { SourceService } from './data/source.service';
+import { ToastrService } from './data/toastr.service';
 
 
 
@@ -35,7 +40,9 @@ import { SideNavbarComponent } from './side-navbar/side-navbar.component';
     SummaryComponent,
     ListRequestsComponent,
     AboutComponent,
-    SideNavbarComponent
+    SideNavbarComponent,
+    SourceListComponent,
+    SourceItemComponent
   
   ],
   imports: [
@@ -46,7 +53,7 @@ import { SideNavbarComponent } from './side-navbar/side-navbar.component';
     AppRoutingModule
     
   ],
-  providers: [],
+  providers: [SourceService, ToastrService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

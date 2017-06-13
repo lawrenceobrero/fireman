@@ -1,12 +1,11 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-12">
-
-      <form (ngSubmit)="onAdd(form)" #form="ngForm">
-        <div id="source-data">
-          <legend>Source Details</legend>
-          <div class="form-group col-sm-5" style="padding: 0px;">
-            <label for="hostname" class="">*Hostname</label>
+       <legend>Source Details</legend>
+      <form (ngSubmit)="onSubmit(form)" #form="ngForm" novalidate autocomplete="off">
+        <div class="row">
+          <div class="form-group col-sm-5" [ngClass]="{'has-error': hostname.invalid && hostname.touched}">
+            <label for="hostname" class=""><sup>*</sup>Hostname</label>
             <input 
               type="text" 
               class="form-control" 
@@ -15,13 +14,16 @@
               name="hostname"
               required
               #hostname="ngModel"
-              >
-              <!--<span class="help-block" *ngIf="!hostname.valid && hostname.touched">Please enter hostname.</span>-->
-              
-           
+             >
+              <div class="text-danger" *ngIf="hostname.touched && hostname.errors">
+                <span class="col-sm-12" style="padding:4px 0 0" *ngIf="hostname.errors.required">
+                    Please enter hostname
+                </span>
+            </div>
           </div>
-          <div class="form-group col-sm-5" style="padding: 0px 10px;">
-            <label for="ipsubnet" class="">*IP/Subnet</label>
+
+          <div class="form-group col-sm-5" [ngClass]="{'has-error': ipsubnet.invalid && ipsubnet.touched}">
+            <label for="ipsubnet" class=""><sup>*</sup>IP/Subnet</label>
             <input 
               type="text" 
               class="form-control" 
@@ -29,12 +31,17 @@
               ngModel
               name="ipsubnet"
               required
-              #ipsubnet="ngModel">
-              <!--<span class="help-block" *ngIf="!ipsubnet.valid && ipsubnet.touched">Please enter valid ip/subnet.</span>-->
-              
+              #ipsubnet="ngModel"
+              >
+              <div class="text-danger" *ngIf="ipsubnet.touched && ipsubnet.errors">
+                <span class="col-sm-12" style="padding:4px 0 0" *ngIf="ipsubnet.errors.required">
+                    Please enter IP / subnet
+                </span>
+            </div>     
           </div>
-          <div class="form-group col-sm-2" style="padding: 0px;">
-            <label for="location">*Location</label>
+
+           <div class="form-group col-sm-2">
+            <label for="location"><sup>*</sup>Location</label>
             <select 
               class="form-control" 
               id="location"
@@ -42,57 +49,51 @@
               name="location"
               required
               #location="ngModel"
-              [ngModel]="defaultLocation">
+              [ngModel]="defaultLocation"
+              required>
               <option value="AB">AB</option>
               <option value="BC">BC</option>
               <option value="ON">ON</option>
             </select>
-             <!--<span class="help-block" *ngIf="!location.valid && location.touched">Please select location.</span>-->
           </div>
+
         </div>
+         
+         <div class="row">
 
-
-      
-        <div class="col-sm-12" style="padding: 0px;">
+        <div class="col-sm-12">
   
-          <button type="submit" class="btn btn-primary " [disabled]="!form.valid" style="margin-top: 5px;">Add</button>
+          <button type="submit" 
+            class="btn btn-success btn-sm " 
+            [disabled]="!form.valid" 
+            data-toggle="tooltip" data-placement="top" title="" data-original-title="Tooltip on top"
+            >
+            <!--{{ editMode ? 'Update' : 'Add' }}-->
+            <i *ngIf="!editMode" class="fa fa-plus"></i>
+            <i *ngIf="editMode" class="fa fa-pencil-square-o"></i>
+            </button>
+
+            <button
+              class="btn btn-danger btn-sm"
+              type="button"
+              (click)="onDelete()"
+              *ngIf="editMode"> <i class="fa fa-minus"></i></button>
+              
+              <button class="btn btn-info btn-sm" type="button" (click)="onClear()"><i class="fa fa-eraser"></i></button>
         </div>
+         </div>
       </form>
     </div>
   </div>
   <br>
-  <table class="table table-striped table-hover ">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Hostname</th>
-        <th>IP/Subnet</th>
-        <th>Location</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-
-      <tr *ngFor="let address of sourceAddress;  let i = index;"> 
-        <td>{{i + 1}}</td>
-        <td>{{address.hostname}}</td>
-        <td>{{address.ip}}</td>
-        <td>{{address.location}}</td>
-        <td>
-          <button type="submit" class="btn btn-danger btn-xs">delete</button>
-        </td>
-      </tr>
-
-      
-    </tbody>
-  </table>
-
-  
-  <div class="col-sm-12" style="padding:0;">
-    <button class="btn btn-success pull-right"
-      (click)="onNext()" [disabled]="!next" >Next</button>
+  <app-source-list *ngIf="next"></app-source-list>
+  <br>
+  <div class="row">
+    <div class="col-sm-12" style="padding:0;">
+      <button class="btn btn-success pull-right"
+        (click)="onNext()" [disabled]="!next" >Next</button>
+        
+    </div>
   </div>
-
-
-
+  
 </div>

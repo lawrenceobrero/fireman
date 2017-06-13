@@ -1,12 +1,12 @@
 
-<div id="wizardStepDiv">
+<!--<div id="wizardStepDiv">
   <ul class="steps pull-right" >
-  <li routerLinkActive="active">
-    <a routerLink="/new">1</a>
+  <li   >
+    <a routerLink="/new" [ngStyle]="{cursor : sourceValid ? 'pointer' : 'text'}" [class.not-active]="!sourceValid">1</a>
   </li>
 
-   <li>
-    <a href="">2</a>
+   <li  >
+    <a routerLink="/new/destination">2</a>
   </li>
    <li >
     <a href="">3</a>
@@ -18,7 +18,7 @@
     <a href="">5</a>
   </li>
 </ul>
-</div>
+</div>-->
 
 
 <router-outlet></router-outlet>
