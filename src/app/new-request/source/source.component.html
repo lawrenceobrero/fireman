@@ -1,13 +1,13 @@
-<div class="container-fluid">
+
   <div class="row">
     <div class="col-sm-12">
       <legend>Source Details</legend>
       <form (ngSubmit)="onSubmit(form)" #form="ngForm" novalidate autocomplete="off">
         <div class="row">
-          <div class="form-group col-sm-5" [ngClass]="{'has-error': hostname.invalid && hostname.touched}">
+          <div class="form-group col-sm-5" [ngClass]="{'has-error': hostname.invalid && hostname.dirty}">
             <label for="hostname" class=""><sup>*</sup>Hostname</label>
             <input type="text" class="form-control" id="hostname" ngModel name="hostname" required #hostname="ngModel">
-            <div class="text-danger" *ngIf="hostname.touched && hostname.errors">
+            <div class="text-danger" *ngIf="hostname.dirty && hostname.errors">
               <span class="col-sm-12" style="padding:4px 0 0" *ngIf="hostname.errors.required">
                     Please enter hostname
                 </span>
@@ -60,10 +60,11 @@
   <app-source-list *ngIf="next"></app-source-list>
   <br>
   <div class="row">
-    <div class="col-sm-12" style="padding:0;">
-      <button class="btn btn-success pull-right" (click)="onNext()" [disabled]="!next">Next</button>
+    <div class="col-sm-12">
+      <button class="btn btn-success pull-right btn-sm" (click)="onNext()" [disabled]="!next">
+         <i class="fa fa-arrow-right fa-2x"></i>
+      </button>
 
     </div>
   </div>
 
-</div>

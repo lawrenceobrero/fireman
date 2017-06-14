@@ -148,9 +148,7 @@ footer {
 }
 
 
-.table {
-    padding: 7px 12px;
-}
+
 /*
 input.ng-invalid.ng-touched {
     border: 2px solid #cd3e3e;
@@ -183,3 +181,76 @@ select.ng-invalid.ng-touched {
     pointer-events: none;
     cursor: default;
 }
+
+
+.btn-info {
+  
+    background-image: none;
+}
+
+.btn-success {
+  
+    background-image: none;
+}
+
+
+.btn-primary {
+  
+    background-image: none;
+}
+
+
+.btn.disabled, .btn.disabled.active, .btn.disabled.focus, .btn.disabled:active, .btn.disabled:focus, .btn.disabled:hover, .btn[disabled], .btn[disabled].active, .btn[disabled].focus, .btn[disabled]:active, .btn[disabled]:focus, .btn[disabled]:hover, fieldset[disabled] .btn, fieldset[disabled] .btn.active, fieldset[disabled] .btn.focus, fieldset[disabled] .btn:active, fieldset[disabled] .btn:focus, fieldset[disabled] .btn:hover {
+    color: #fff;
+    background-color: #cecece;
+    border-color: #cecece;
+    background-image: none;
+}
+
+
+
+
+.btn-group-sm>.btn, .btn-sm {
+
+    padding: 5px 10px;
+        
+ 
+}
+
+
+.btn-success.active, .btn-success.focus, .btn-success:active, .btn-success:focus, .btn-success:hover, .open>.dropdown-toggle.btn-success {
+
+    background-image: none;
+
+}
+
+
+.btn-info.active, .btn-info.focus, .btn-info:active, .btn-info:focus, .btn-info:hover, .open>.dropdown-toggle.btn-info {
+    color: #fff;
+    background-color: #b196c1;
+    border: 1px solid #b196c1;
+    background-image: none;
+}
+
+
+.btn {
+    
+ -webkit-box-shadow: none;
+box-shadow: none;
+}
+
+
+.btn-danger {
+    background-image: none;
+}
+
+
+.btn-danger.active, .btn-danger.focus, .btn-danger:active, .btn-danger:focus, .btn-danger:hover, .open>.dropdown-toggle.btn-danger {
+   
+    background-image: none;
+}
+
+
+.btn-primary.active, .btn-primary.focus, .btn-primary:active, .btn-primary:focus, .btn-primary:hover, .open>.dropdown-toggle.btn-primary {
+  
+    background-image: none;
