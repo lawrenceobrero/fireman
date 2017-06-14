@@ -1,55 +1,32 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-12">
-       <legend>Destination Details</legend>
+      <legend>Destination Details</legend>
       <form (ngSubmit)="onSubmit(form)" #form="ngForm" novalidate autocomplete="off">
         <div class="row">
-          <div class="form-group col-sm-5" [ngClass]="{'has-error': hostname.invalid && hostname.touched}">
+          <div class="form-group col-sm-5" [ngClass]="{'has-error': hostname.invalid && hostname.dirty}">
             <label for="hostname" class=""><sup>*</sup>Hostname</label>
-            <input 
-              type="text" 
-              class="form-control" 
-              id="hostname"
-              ngModel
-              name="hostname"
-              required
-              #hostname="ngModel"
-             >
-              <div class="text-danger" *ngIf="hostname.touched && hostname.errors">
-                <span class="col-sm-12" style="padding:4px 0 0" *ngIf="hostname.errors.required">
+            <input type="text" class="form-control" id="hostname" ngModel name="hostname" required #hostname="ngModel">
+            <div class="text-danger" *ngIf="hostname.touched && hostname.errors">
+              <span class="col-sm-12" style="padding:4px 0 0" *ngIf="hostname.errors.required">
                     Please enter hostname
                 </span>
             </div>
           </div>
 
-          <div class="form-group col-sm-5" [ngClass]="{'has-error': ipsubnet.invalid && ipsubnet.touched}">
+          <div class="form-group col-sm-5" [ngClass]="{'has-error': ipsubnet.invalid && ipsubnet.dirty}">
             <label for="ipsubnet" class=""><sup>*</sup>IP/Subnet</label>
-            <input 
-              type="text" 
-              class="form-control" 
-              id="ipsubnet"
-              ngModel
-              name="ipsubnet"
-              required
-              #ipsubnet="ngModel"
-              >
-              <div class="text-danger" *ngIf="ipsubnet.touched && ipsubnet.errors">
-                <span class="col-sm-12" style="padding:4px 0 0" *ngIf="ipsubnet.errors.required">
+            <input type="text" class="form-control" id="ipsubnet" ngModel name="ipsubnet" required #ipsubnet="ngModel">
+            <div class="text-danger" *ngIf="ipsubnet.dirty && ipsubnet.errors">
+              <span class="col-sm-12" style="padding:4px 0 0" *ngIf="ipsubnet.errors.required">
                     Please enter IP / subnet
                 </span>
-            </div>     
+            </div>
           </div>
 
-           <div class="form-group col-sm-2">
+          <div class="form-group col-sm-2">
             <label for="location"><sup>*</sup>Location</label>
-            <select 
-              class="form-control" 
-              id="location"
-              ngModel
-              name="location"
-              required
-              #location="ngModel"
-              [ngModel]="defaultLocation"
+            <select class="form-control" id="location" ngModel name="location" required #location="ngModel" [ngModel]="defaultLocation"
               required>
               <option value="AB">AB</option>
               <option value="BC">BC</option>
@@ -58,27 +35,25 @@
           </div>
 
         </div>
-         
-         <div class="row">
 
-        <div class="col-sm-12">
-  
-          <button type="submit" 
-            class="btn btn-success " 
-            [disabled]="!form.valid" 
-            >
-            {{ editMode ? 'Update' : 'Add' }}
-            </button>
+        <div class="row">
 
-            <button
-              class="btn btn-danger"
-              type="button"
-              (click)="onDelete()"
-              *ngIf="editMode">Delete</button>
-              
-              <button class="btn btn-info" type="button" (click)="onClear()">Clear</button>
+          <div class="col-sm-12">
+
+            <button type="submit" class="btn btn-success btn-sm " [disabled]="!form.valid">
+            <i *ngIf="!editMode; else editIcon" class="fa fa-plus"></i>
+
+            <ng-template #editIcon>
+                  <i class="fa fa-pencil-square-o"></i>
+        
+            </ng-template>
+                </button>
+
+            <button class="btn btn-danger btn-sm" type="button" (click)="onDelete()" *ngIf="editMode"> <i class="fa fa-minus"></i></button>
+
+            <button class="btn btn-info btn-sm" type="button" (click)="onClear()"><i class="fa fa-eraser"></i></button>
+          </div>
         </div>
-         </div>
       </form>
     </div>
   </div>
@@ -86,13 +61,16 @@
   <app-source-list *ngIf="next"></app-source-list>
   <br>
   <div class="row">
-    <div class="col-sm-12" style="padding:0;">
-        <button class="btn btn-default"
-        (click)="onBack()">Back</button>
-      <button class="btn btn-success pull-right"
-        (click)="onNext()" [disabled]="!next" >Next</button>
-        
+    <div class="col-sm-12">
+       <button class="btn btn-info pull-left btn-sm" (click)="onBack()">
+          <i class="fa fa-arrow-left fa-2x"></i>
+       </button>
+      <button class="btn btn-success pull-right btn-sm" (click)="onNext()" [disabled]="!next">
+        <!--Next-->
+            <i class="fa fa-arrow-right fa-2x"></i>
+        </button>
+
     </div>
   </div>
-  
+
 </div>

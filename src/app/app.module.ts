@@ -22,6 +22,7 @@ import { SourceListComponent } from './new-request/source/source-list/source-lis
 
 import { SourceItemComponent } from './new-request/source/source-list/source-item/source-item.component';
 import { SourceService } from './data/source.service';
+import { DestinationService } from './data/destination.service';
 import { ToastrService } from './data/toastr.service';
 
 
@@ -53,7 +54,9 @@ import { ToastrService } from './data/toastr.service';
     AppRoutingModule
     
   ],
-  providers: [SourceService, ToastrService],
+  providers: [SourceService, 
+    DestinationService,
+    ToastrService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

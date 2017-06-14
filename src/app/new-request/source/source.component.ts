@@ -95,7 +95,7 @@ export class SourceComponent implements OnInit, OnDestroy {
        this.toastr.success('New source address added.');
     }
     this.editMode = false;
-    if (this.sourceAddresses.length > 0) this.next = true;
+    if (this.sourceAddresses.length) this.next = true;
     form.reset();
   }
 
