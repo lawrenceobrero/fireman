@@ -24,6 +24,7 @@ import { SourceItemComponent } from './new-request/source/source-list/source-ite
 import { SourceService } from './data/source.service';
 import { DestinationService } from './data/destination.service';
 import { ToastrService } from './data/toastr.service';
+import { DestinationListComponent } from './new-request/destination/destination-list/destination-list.component';
 
 
 
@@ -43,7 +44,8 @@ import { ToastrService } from './data/toastr.service';
     AboutComponent,
     SideNavbarComponent,
     SourceListComponent,
-    SourceItemComponent
+    SourceItemComponent,
+    DestinationListComponent
   
   ],
   imports: [

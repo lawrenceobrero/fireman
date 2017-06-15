@@ -40,17 +40,18 @@
 
           <div class="col-sm-12">
 
-            <button type="submit" class="btn btn-success btn-sm " [disabled]="!form.valid" data-toggle="tooltip" data-placement="top"
+            <button type="submit" class="btn btn-success btn-sm btn-op-sm" [disabled]="!form.valid" data-toggle="tooltip" data-placement="top"
               title="" data-original-title="Tooltip on top">
               <i *ngIf="!editMode; else editIcon" class="fa fa-plus"></i>
 
               <ng-template #editIcon>
-                  <i class="fa fa-pencil-square-o"></i>
+                  <i class="fa fa-pencil"></i>
               </ng-template>
             </button>
-            <button class="btn btn-danger btn-sm" type="button" (click)="onDelete()" *ngIf="editMode"> <i class="fa fa-minus"></i></button>
+            <button class="btn btn-danger btn-sm btn-op-sm" type="button" (click)="onDelete()" *ngIf="editMode"> <i class="fa  fa-trash
+"></i></button>
 
-            <button class="btn btn-info btn-sm" type="button" (click)="onClear()"><i class="fa fa-eraser"></i></button>
+            <button class="btn btn-info btn-sm btn-op-sm" type="button" (click)="onClear()"><i class="fa fa-eraser"></i></button>
           </div>
         </div>
       </form>
@@ -61,7 +62,7 @@
   <br>
   <div class="row">
     <div class="col-sm-12">
-      <button class="btn btn-success pull-right btn-sm" (click)="onNext()" [disabled]="!next">
+      <button class="btn btn-success pull-right btn-sm btn-arrow" (click)="onNext()" [disabled]="!next">
          <i class="fa fa-arrow-right fa-2x"></i>
       </button>
 

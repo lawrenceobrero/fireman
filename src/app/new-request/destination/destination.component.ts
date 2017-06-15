@@ -61,6 +61,20 @@ export class DestinationComponent implements OnInit {
       }
     );
 
+      this.editModeChangedSubscription = this.destinationService.editModeChaged
+      .subscribe(
+      (editMode: boolean) => {
+        this.editMode = editMode;
+        console.log('edit mode' + this.editMode);
+
+      }
+      );
+
+    this.desAddresses = this.destinationService.getAddresses();
+    if (this.desAddresses.length) this.next = true;
+
+    console.log(this.desAddresses);
+
     console.log('Out ngOnInit of destination component ...');
   }
 
@@ -72,10 +86,10 @@ export class DestinationComponent implements OnInit {
     if (this.editMode) {
       this.destinationService.updateAddress(this.editedItemIndex, newAddress);
       this.destinationService.startedEditing.next(-1);
-      this.toastr.success('Source address updated.');
+      this.toastr.success('Destination address updated.');
     } else {
       this.destinationService.addAddress(newAddress);
-      this.toastr.success('New source address added.');
+      this.toastr.success('New destination address added.');
     }
     this.editMode = false;
     if (this.desAddresses.length) this.next = true;
@@ -91,6 +105,30 @@ export class DestinationComponent implements OnInit {
 
   onNext() {
     this.router.navigate(['/new/port']);
+  }
+
+  
+  onDelete(){
+    this.destinationService.deleteAddress(this.editedItemIndex);
+    this.onClear();
+    if (this.desAddresses.length == 0) this.next = false;  
+    this.toastr.success('Source address deleted.');
+  }
+
+
+   onClear() {
+    this.form.reset();
+    this.destinationService.startedEditing.next(-1);
+    this.editMode = false;
+   
+  }
+
+
+
+
+  ngOnDestroy() {
+    this.startedEditingSubscrition.unsubscribe();
+    this.subscription.unsubscribe();
   }
 
 }

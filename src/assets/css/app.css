@@ -210,11 +210,8 @@ select.ng-invalid.ng-touched {
 
 
 
-.btn-group-sm>.btn, .btn-sm {
-
-    padding: 5px 10px;
-        
- 
+.btn-op-sm {
+        padding: 5px 10px;
 }
 
 
@@ -254,3 +251,12 @@ box-shadow: none;
 .btn-primary.active, .btn-primary.focus, .btn-primary:active, .btn-primary:focus, .btn-primary:hover, .open>.dropdown-toggle.btn-primary {
   
     background-image: none;
+
+}
+
+
+.btn-arrow {
+    padding: 4px 10px 5px;
+}
+
+
