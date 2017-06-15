@@ -1,51 +1,38 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-12">
-      <legend>Destination Details</legend>
+      <legend>Port Details</legend>
       <form (ngSubmit)="onSubmit(form)" #form="ngForm" novalidate autocomplete="off">
         <div class="row">
-          <div class="form-group col-sm-5" [ngClass]="{'has-error': hostname.invalid && hostname.dirty}">
-            <label for="hostname" class=""><sup>*</sup>Port</label>
-            <input type="text" class="form-control" id="hostname" ngModel name="hostname" required #hostname="ngModel">
-            <div class="text-danger" *ngIf="hostname.touched && hostname.errors">
-              <span class="col-sm-12" style="padding:4px 0 0" *ngIf="hostname.errors.required">
+          <div class="form-group col-sm-2" [ngClass]="{'has-error': port.invalid && port.dirty}">
+            <label for="port" class=""><sup>*</sup>Port</label>
+            <input type="text" class="form-control" id="port" ngModel name="port" required #port="ngModel">
+            <div class="text-danger" *ngIf="port.touched && port.errors">
+              <span class="col-sm-12" style="padding:4px 0 0" *ngIf="port.errors.required">
                     Please enter port
                 </span>
             </div>
           </div>
 
-          <div class="form-group col-sm-5" [ngClass]="{'has-error': ipsubnet.invalid && ipsubnet.dirty}">
-            <label for="ipsubnet" class=""><sup>*</sup>IP/Subnet</label>
-            <input type="text" class="form-control" id="ipsubnet" ngModel name="ipsubnet" required #ipsubnet="ngModel">
-            <div class="text-danger" *ngIf="ipsubnet.dirty && ipsubnet.errors">
-              <span class="col-sm-12" style="padding:4px 0 0" *ngIf="ipsubnet.errors.required">
-                    Please enter IP / subnet
-                </span>
-            </div>
-          </div>
+       
 
-          <div class="form-group col-sm-2">
-            <label for="location"><sup>*</sup>Location</label>
-            <select class="form-control" id="location" ngModel name="location" required #location="ngModel" [ngModel]="defaultLocation"
+          <div class="form-group col-sm-1">
+            <label for="location"><sup>*</sup>Protocol</label>
+            <select class="form-control" id="protocol" ngModel name="protocol" required #protocol="ngModel" [ngModel]="defaultProtocol"
               required>
-              <option value="AB">AB</option>
-              <option value="BC">BC</option>
-              <option value="ON">ON</option>
+              <option value="TCP">TCP</option>
+              <option value="UDP">UDP</option>
             </select>
           </div>
-
         </div>
 
         <div class="row">
-
           <div class="col-sm-12">
-
             <button type="submit" class="btn btn-success btn-sm btn-op-sm" [disabled]="!form.valid">
             <i *ngIf="!editMode; else editIcon" class="fa fa-plus"></i>
 
             <ng-template #editIcon>
                   <i class="fa fa-pencil"></i>
-        
             </ng-template>
                 </button>
 
@@ -61,7 +48,7 @@
   <br>
 
   <!--show table-->
-  <app-destination-list *ngIf="next">  </app-destination-list>
+  <app-port-list *ngIf="next"></app-port-list>
 
   <br>
   <div class="row">

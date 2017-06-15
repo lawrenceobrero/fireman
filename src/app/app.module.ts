@@ -25,6 +25,7 @@ import { SourceService } from './data/source.service';
 import { DestinationService } from './data/destination.service';
 import { ToastrService } from './data/toastr.service';
 import { DestinationListComponent } from './new-request/destination/destination-list/destination-list.component';
+import { PortListComponent } from './new-request/port/port-list/port-list.component';
 
 
 
@@ -45,7 +46,8 @@ import { DestinationListComponent } from './new-request/destination/destination-
     SideNavbarComponent,
     SourceListComponent,
     SourceItemComponent,
-    DestinationListComponent
+    DestinationListComponent,
+    PortListComponent
   
   ],
   imports: [
