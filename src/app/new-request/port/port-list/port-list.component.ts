@@ -1,4 +1,7 @@
+import { PortService } from './../port.service';
 import { Component, OnInit } from '@angular/core';
+import { Port } from '../../../data/port.model';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-port-list',
@@ -7,9 +10,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PortListComponent implements OnInit {
 
-  constructor() { }
+
+  ports : Port[];
+  subscription: Subscription;
+  startedEditingSubscription : Subscription;
+  selectedRow : number;
+
+  constructor(private portService : PortService) { }
 
   ngOnInit() {
+    this.subscription = this.portService.portChanged
+      .subscribe(
+        (ports: Port[]) => {
+          this.ports = ports;
+        }
+      );
+
+      this.startedEditingSubscription = this.portService.startedEditing
+      .subscribe(
+        (index : number) => {
+          this.selectedRow = index;
+        }
+      );
+
+    this.ports = this.portService.getPorts();
+    
   }
 
 }

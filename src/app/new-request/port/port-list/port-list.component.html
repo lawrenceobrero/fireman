@@ -5,14 +5,14 @@
     <table class="table table-striped table-hover ">
       <thead>
         <tr>
-          <th style="width: 10em;">Port</th>
+          <th style="width: 10em;">Port Number</th>
           <th>Protocol</th>
         </tr>
       </thead>
       <tbody>
        <tr *ngFor="let port of ports; let i = index"
        (click)="onEditItem(i)" style="cursor: pointer;" [class.active]="i == selectedRow">
-            <td>{{port.number}}</td>
+            <td>{{port.port}}</td>
             <td>{{port.protocol}}</td>      
         </tr>
 

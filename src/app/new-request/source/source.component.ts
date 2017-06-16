@@ -84,7 +84,11 @@ export class SourceComponent implements OnInit, OnDestroy {
 
 
   onSubmit(form: NgForm) {
+    console.log(form);
+    
     const value = form.value;
+    console.log(form.value);
+    
     const newAddress = new Address(value.hostname, value.ipsubnet, value.location);
     if (this.editMode) {
       this.sourceService.updateAddress(this.editedItemIndex, newAddress);
