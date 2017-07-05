@@ -37,4 +37,13 @@ export class PortListComponent implements OnInit {
     
   }
 
+
+  onEditItem(index : number) {
+    console.log('index = ' +  index);
+    
+    this.selectedRow = index;
+    this.portService.startedEditing.next(index);
+    
+  }
+
 }

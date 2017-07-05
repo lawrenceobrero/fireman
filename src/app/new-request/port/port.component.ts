@@ -88,12 +88,29 @@ export class PortComponent implements OnInit, OnDestroy {
 
     this.editMode = false;
     if (this.ports.length > 0) this.next = true;
-    // form.reset();
+    form.reset();
   }
 
 
   onNext() {
     this.router.navigate(['/new/project']);
+  }
+
+
+  
+  onClear() {
+    this.form.reset();
+    this.portService.startedEditing.next(-1);
+    this.editMode = false;
+   
+  }
+
+
+  onDelete(){
+    this.portService.deletePort(this.editedItemIndex);
+    this.onClear();
+    if (this.ports.length == 0) this.next = false;  
+    this.toastr.success('Port details deleted.');
   }
 
 
